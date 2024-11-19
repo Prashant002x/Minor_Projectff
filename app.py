@@ -2,12 +2,22 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 import tensorflow as tf
+# Inject CSS to hide the GitHub "Fork" button
+hide_fork_button = """
+<style>
+header a[title="View source"], header a[aria-label="View source"] {
+    display: none !important;
+}
+</style>
+"""
 
+st.markdown(hide_fork_button, unsafe_allow_html=True)
 # Hide Streamlit menu and add footer
 st.markdown(
     """
     <style>
         #MainMenu {visibility: hidden;}
+        header {visibility: hidden;}
         footer {visibility: hidden;}
         footer:after {
             content:'This app is in its early stage. We recommend you to seek professional advice from a dermatologist. Thank you.'; 
